@@ -1,0 +1,8 @@
+SAME ORIGIN POLICY
+
+Namun apakah Anda tahu bahwa tidak semua data bisa diambil dari origin yang berbeda? 
+Contohnya data JSON yang didapatkan melalui teknik XMLHTTPRequest atau fetch. 
+Jika website meminta sesuatu menggunakan teknik tersebut dari luar origin-nya, maka permintaan tersebut akan ditolak.
+Itu disebabkan oleh kebijakan same-origin. Kasus ini terjadi pada aplikasi client dan web server yang kita buat.
+
+Origin terdiri dari tiga hal: protokol, host, dan port number. 

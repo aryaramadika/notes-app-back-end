@@ -1,0 +1,45 @@
+npm install @hapi/hapi
+
+Menyiapkan Proyek
+Seperti biasa, mari kita awali dengan membuat proyek baru. Sudah tahu kan caranya? Jika belum, silakan ikuti langkah berikut:
+
+Buat folder baru dengan nama “notes-app-back-end” pada C -> javascript-projects (Windows) atau Home -> javascript-projects (Linux).
+Buka folder tersebut menggunakan VSCode.
+Buka Terminal proyek dan eksekusi perintah npm init --y.
+Pastikan terdapat berkas package.json pada proyek Anda.
+
+Nodemon
+Tools pertama adalah nodemon, ia bisa dikatakan wajib digunakan selama proses pengembangan. 
+Pasalnya, dengan tools ini kita tak perlu menjalankan ulang server ketika terjadi perubahan pada berkas JavaScript. 
+Nodemon akan mendeteksi perubahan kode JavaScript dan mengeksekusi ulang secara otomatis.
+
+Untuk menggunakannya, pasanglah package nodemon pada devDependencies dengan mengeksekusi perintah berikut di Terminal proyek:
+
+npm install nodemon --save-dev
+
+
+ESLint
+Tools yang kedua adalah ESLint, ia dapat membantu atau membimbing Anda untuk selalu menuliskan kode JavaScript dengan gaya yang konsisten.
+Seperti yang Anda tahu, JavaScript tidak memiliki aturan yang baku untuk gaya penulisan kode, bahkan penggunaan semicolon. 
+Karena itu, terkadang kita jadi tidak konsisten dalam menuliskannya.
+
+Untuk menggunakan ESLint, pasanglah package ESLint pada devDependencies proyek Anda. 
+Caranya, silakan eksekusi perintah berikut di Terminal:
+
+npm install eslint --save-dev
+
+npx eslint --init
+
+Kemudian Anda akan diberikan beberapa pertanyaan, silakan jawab pertanyaan yang ada dengan jawaban berikut:
+
+How would you like to use ESLint? -> To check, find problems, and enforce code style.
+What type of modules does your project use? -> CommonJS (require/exports).
+Which framework did you use? -> None of these. 
+Does your project use TypeScript? -> N.
+Where does your code run? -> Node (pilih menggunakan spasi).
+How would you like to define a style for your project? -> Use a popular style guide.
+Which style guide do you want to follow? -> (Anda bebas memilih, sebagai contoh pilih AirBnB).
+What format do you want your config file to be in? -> JSON.
+Would you like to …… (seluruh pertanyaan selanjutnya) -> Y.
+
+npx eslint . --fix untuk memperbaiki masalah-masalah (Automatically fix problems) yang berkaitan dengan ESLint, ya. */
