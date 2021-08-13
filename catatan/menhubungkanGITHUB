@@ -1,0 +1,21 @@
+MENGHUBUNGKAN LOCAL repository LOCAL dengan remote repository
+
+LANGKAH 1 
+git init
+
+LANGKAH 2 
+
+git add .
+git commit -m "initial commit"
+
+LANGKAH 3 
+
+git remote add origin <remote repository URL> 
+
+Contohnya
+
+git remote add origin https://github.com/dimasmd/notes-app-back-end.git 
+
+LAST PART
+
+git push origin master
