@@ -1,14 +1,14 @@
-const { nanoid } = require('nanoid');
+const {nanoid} = require('nanoid');
 const notes = require('./notes');
 
 const addNoteHandler = (request, h) => {
-  const { title, tags, body } = request.payload;
+  const {title, tags, body} = request.payload;
   const id = nanoid(16);
   const createdAt = new Date().toISOString();
-  const updateAt = createdAt;
+  const updatedAt = createdAt;
 
   const newNote = {
-    title, tags, body, id, createdAt, updateAt,
+    title, tags, body, id, createdAt, updatedAt,
   };
 
   notes.push(newNote);
@@ -42,11 +42,12 @@ const getAllNotesHandler = () => ({
   data: {
     notes,
   },
+
 });
 
 
 const getNoteByIdHandler = (request, h) => {
-  const { id } = request.params;
+  const {id} = request.params;
 
   const note = notes.filter((n) => n.id === id)[0];
 
@@ -67,9 +68,9 @@ const getNoteByIdHandler = (request, h) => {
 };
 
 const editNoteByIdHandler = (request, h) => {
-  const { id } = request.params;
+  const {id} = request.params;
 
-  const { title, tags, body } = request.payload;
+  const {title, tags, body} = request.payload;
   const updatedAt = new Date().toISOString();
 
   const index = notes.findIndex((note) => note.id === id);
@@ -99,7 +100,7 @@ const editNoteByIdHandler = (request, h) => {
   return response;
 };
 const deleteNoteByIdHandler = (request, h) => {
-  const { id } = request.params;
+  const {id} = request.params;
 
   const index = notes.findIndex((note) => note.id === id);
 
@@ -122,4 +123,4 @@ const deleteNoteByIdHandler = (request, h) => {
 };
 
 // eslint-disable-next-line max-len
-module.exports = { addNoteHandler, getAllNotesHandler, getNoteByIdHandler, editNoteByIdHandler, deleteNoteByIdHandler };
+module.exports = {addNoteHandler, getAllNotesHandler, getNoteByIdHandler, editNoteByIdHandler, deleteNoteByIdHandler};

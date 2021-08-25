@@ -6,3 +6,22 @@ Jika website meminta sesuatu menggunakan teknik tersebut dari luar origin-nya, m
 Itu disebabkan oleh kebijakan same-origin. Kasus ini terjadi pada aplikasi client dan web server yang kita buat.
 
 Origin terdiri dari tiga hal: protokol, host, dan port number. 
+
+untungnya ada mekanisme yang dapat membuat mereka saling berinteraksi. Mekanisme tersebut disebut Cross-origin resource sharing (CORS). 
+
+Cukup mudah! Pada web server, kita hanya perlu memberikan nilai header ‘Access-Control-Allow-Origin’ 
+dengan nilai origin luar yang akan mengkonsumsi datanya (aplikasi client).
+
+const response = h.response({ error: false, message: 'Catatan berhasil ditambahkan' });
+ 
+response.header('Access-Control-Allow-Origin', 'http://notesapp-v1.dicodingacademy.com');
+ 
+return response;
+
+atau
+
+const response = h.response({ error: false, message: 'Catatan berhasil ditambahkan' });
+ 
+response.header('Access-Control-Allow-Origin', '*');
+ 
+return response;
