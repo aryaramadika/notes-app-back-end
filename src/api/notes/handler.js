@@ -18,7 +18,7 @@ class NotesHandler{
     
             const response = h.response({
                 status :'success',
-                message : 'Catatan Berhasil ditambahkan',
+                message : 'Catatan berhasil ditambahkan',
                 data : {
                     noteId,
                 },
@@ -94,7 +94,7 @@ class NotesHandler{
     deleteNoteByIdHandler(request, h) {
         try {
             const {id} = request.params;
-            this._service.deleteNoteByIdHandler(id);
+            this._service.deleteNoteById(id);
             return {
                 status : 'success',
                 message : 'Catatan berhasil dihapus',
@@ -102,7 +102,7 @@ class NotesHandler{
         } catch (error) {
             const response = h.response({
                 status :'fail',
-                message : 'Catatan gagal dihapus , Id tidak ditemukan',
+                message : 'Catatan tidak ditemukan',
             });
             response.code(404);
             return response;

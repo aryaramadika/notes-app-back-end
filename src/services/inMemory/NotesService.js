@@ -20,7 +20,8 @@ class NotesService {
         /**kita bisa mengeceknya menggunakan fungsi filter untuk mencari berdasarkan id catatan 
          * yang baru saja dibuat (newNote), kemudian menyimpan hasilnya dalam variabel isSuccess.
          */
-        this._notes(newNote);
+        // this._notes(newNote);
+        this._notes.push(newNote);
         const isSuccess = this._notes.filter((note) => note.id === id).length > 0; 
 
         if (!isSuccess){
@@ -37,17 +38,17 @@ class NotesService {
         const note = this._notes.filter((n) => n.id === id)[0];
 
         if(!note){
-            throw new Error('Çatatan tidak ditemukan');
+            throw new Error('Catatan tidak ditemukan');
         }
 
         return note;
     }
 
-    editNoteById(title, body, tags){
+    editNoteById(id, {title, body, tags}){
         const index = this._notes.findIndex((note) => note.id == id);
 
-        if( index === 1){
-            throw new Error('Gagal untuk memperbarui catatan, ID Tidak ditemukan');
+        if( index === -1){
+            throw new Error('Gagal memperbarui catatan, Id tidak ditemukan');
         }
 
         const updatedAt = new Date().toISOString();
@@ -67,7 +68,7 @@ class NotesService {
             throw new Error('Catatan gagal dihapus. Id tidak ditemukan');
           }
         
-          this._notes.splice(index, 1);
+        this._notes.splice(index, 1);
     }
 }
 
