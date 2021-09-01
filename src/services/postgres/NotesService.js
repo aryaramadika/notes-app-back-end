@@ -46,7 +46,7 @@ class NotesService{
             throw new NotFoundError('Catatan tidak ditemukan');
         }
 
-        return result.rows.map(mapDBToModel);
+        return result.rows.map(mapDBToModel)[0];
     }
 
     async editNoteById(id, { title, body, tags }) {
